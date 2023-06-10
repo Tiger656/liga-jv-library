@@ -1,0 +1,47 @@
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet  id="1"  author="Tim Shvaiba">
+        <createTable tableName="books">
+            <column autoIncrement="true" name="id" type="bigserial">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="is_borrowed" type="boolean" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="clients">
+            <column autoIncrement="true" name="id" type="bigserial" >
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="borrow_info">
+         <column name="id" type="bigserial">
+             <constraints nullable="false"  primaryKey="true"/>
+         </column>
+         <column name="book_id" type="bigint">
+             <constraints nullable="false"  foreignKeyName="fk_borrow_info_books" references="books(id)"/>
+         </column>
+         <column name="client_id" type="bigint">
+             <constraints nullable="false"  foreignKeyName="fk_borrow_info_clients" references="clients(id)"/>
+         </column>
+         <column name="is_returned" type="boolean" defaultValueBoolean="false">
+             <constraints  nullable="false" />
+         </column>
+        </createTable>
+
+    </changeSet>
+
+</databaseChangeLog>

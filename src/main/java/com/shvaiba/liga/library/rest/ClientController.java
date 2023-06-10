@@ -1,9 +1,9 @@
-/*
 package com.shvaiba.liga.library.rest;
 
 import com.shvaiba.liga.library.rest.dto.BookDto;
 import com.shvaiba.liga.library.rest.dto.ClientDto;
 import com.shvaiba.liga.library.service.BookService;
+import com.shvaiba.liga.library.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,14 +26,14 @@ public class ClientController {
     }
 
     @PutMapping(path = "/{id}")
-    public ClientDto updateClient(@PathVariable("id") Integer clientId, ClientDto clientDto) {
-        return clientService.updateClient(clientDto);
+    public ClientDto updateClient(@PathVariable("id") Long clientId, ClientDto clientDto) {
+        return clientService.updateClient(clientDto, clientId);
 
     }
 
     @GetMapping(path = "/{id}")
     public ClientDto getClient(@PathVariable("id") Long clientId) {
-        return clientService.getClient(bookId);
+        return clientService.getClient(clientId);
     }
 
     @GetMapping("/")
@@ -43,9 +43,8 @@ public class ClientController {
 
     @DeleteMapping(path = "/")
     public void deleteClient(@PathVariable("id") Long clientId) {
-
+        clientService.deleteClient(clientId);
     }
 
 
 }
-*/
