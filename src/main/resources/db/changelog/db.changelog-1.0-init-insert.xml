@@ -1,0 +1,48 @@
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet  id="1"  author="Tim Shvaiba">
+        <insert tableName="books">
+            <column name="name" value="Bible"/>
+            <column name="is_borrowed" valueBoolean="false"/>
+        </insert>
+        <insert tableName="books">
+            <column name="name" value="Torah"/>
+            <column name="is_borrowed" valueBoolean="false"/>
+        </insert>
+        <insert tableName="books">
+            <column name="name" value="Quran"/>
+            <column name="is_borrowed" valueBoolean="false"/>
+        </insert>
+        <insert tableName="books">
+            <column name="name" value="Tripitaka"/>
+            <column name="is_borrowed" valueBoolean="false"/>
+        </insert>
+
+        <insert tableName="clients">
+            <column name="name" value="Jesus Christ"/>
+        </insert>
+        <insert tableName="clients">
+            <column name="name" value="G-d"/>
+        </insert>
+        <insert tableName="clients">
+            <column name="name" value="Allah"/>
+        </insert>
+        <insert tableName="clients">
+            <column name="name" value="Buddah"/>
+        </insert>
+
+
+        <insert tableName="borrow_info">
+            <column name="book_id" valueNumeric="1"/>
+            <column name="client_id" valueNumeric="1"/>
+            <column name="is_returned" valueBoolean="false"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>

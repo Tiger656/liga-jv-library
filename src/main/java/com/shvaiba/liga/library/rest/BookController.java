@@ -25,8 +25,8 @@ public class BookController {
     }
 
     @PutMapping(path = "/{id}")
-    public Book updateBook(@PathVariable("id") Integer bookId, BookDto bookDto) {
-        return bookService.updateBook(bookDto);
+    public Book updateBook(@PathVariable("id") Long bookId, BookDto bookDto) {
+        return bookService.updateBook(bookDto, bookId);
 
     }
 
@@ -45,10 +45,16 @@ public class BookController {
         bookService.deleteBook(bookId);
     }
 
-    @PostMapping(path = "/{bookId}/borrow") //TO DO: Should be
+    @PostMapping(path = "/{bookId}/borrow") //TO DO: Data params should be in request body
     public Book borrowBook(@PathVariable("bookId") Long bookId,
                            @RequestParam(name = "clientId", required = true) Long clientId) {
         return bookService.borrowBook(bookId, clientId);
+    }
+
+    @PostMapping(path = "/{bookId}/return") //TO DO: Data params should be in request body
+    public Book returnBook(@PathVariable("bookId") Long bookId,
+                           @RequestParam(name = "clientId", required = true) Long clientId) {
+        return bookService.returnBook(bookId, clientId);
     }
 
 
