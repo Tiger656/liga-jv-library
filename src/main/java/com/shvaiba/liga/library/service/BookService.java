@@ -29,7 +29,7 @@ public class BookService {
     }
 
     public Book addBook(BookDto bookDto) {
-        return bookRepository.save(new Book(bookDto.getId(), bookDto.getName(), null));
+        return bookRepository.save(new Book(null, bookDto.getName(), false));
     }
 
     public void deleteBook(Long bookId) {
@@ -57,7 +57,6 @@ public class BookService {
         BorrowInfo borrowInfo = new BorrowInfo(null, client, book, false);
         borrowInfoRepository.save(borrowInfo);
         book.setIsBorrowed(true);
-        bookRepository.save(book);
         return bookRepository.save(book);
     }
 

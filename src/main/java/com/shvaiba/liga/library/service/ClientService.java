@@ -27,6 +27,7 @@ public class ClientService {
     public ClientDto updateClient(ClientDto clientDto, Long clientId) { //TO DO: replace dto for updateDto and return type
        Client client = clientRepository.getReferenceById(clientId);
        client.setName(clientDto.getName());
+       clientRepository.save(client);
        return clientDto;
     }
 
@@ -43,3 +44,6 @@ public class ClientService {
         clientRepository.deleteById(clientId);
     }
 }
+
+
+
