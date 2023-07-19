@@ -39,11 +39,20 @@ publishing {
 	repositories {
 		maven {
 			name = "GitHubPackages"
-			url = "https://maven.pkg.github.com/octocat/hello-world"
+			url = "https://maven.pkg.github.com/Tiger656/liga-jv-library"
 			credentials {
 				username = project.findProperty("gpr.user") ?: System.getenv("USERNAME_GITHUB") // Define credentials via GitHub Actions secrets
 				password = project.findProperty("gpr.token") ?: System.getenv("PACKAGE_PAT") // Define credentials via GitHub Actions secrets
 			}
 		}
 	}
+
+//	publications {
+//		register("jar", MavenPublication) {
+//			from(components["java"])
+//			pom {
+//				url.set("https://github.com/<OWNER>/<REPO>.git")
+//			}
+//		}
+//	}
 }
