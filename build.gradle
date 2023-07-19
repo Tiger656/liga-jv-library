@@ -47,12 +47,12 @@ publishing {
 		}
 	}
 
-//	publications {
-//		register("jar", MavenPublication) {
-//			from(components["java"])
-//			pom {
-//				url.set("https://github.com/<OWNER>/<REPO>.git")
-//			}
-//		}
-//	}
+	publications {
+		register("jar", MavenPublication) {
+			from(components["java"])
+			pom {
+				url.set("https://maven.pkg.github.com/Tiger656/liga-jv-library")
+			}
+		}
+	}
 }
