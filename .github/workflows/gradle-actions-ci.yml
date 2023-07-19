@@ -28,6 +28,10 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+    #change the gradlew file permission to make it executable   
+    - name: Change wrapper permissions
+      run: chmod +x ./gradlew
+    
     - name: Build with Gradle
       run: ./gradlew build
         
