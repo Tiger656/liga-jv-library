@@ -44,11 +44,9 @@ jobs:
       run: ./gradlew test
       
     - name: Publish to GitHub Packages
-      #if: startsWith(github.ref, 'refs/tags/')
+      uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
+      with:
+        arguments: publish
       env:
-        PACKAGE_PAT: ${{ secrets.PACKAGE_PAT }}
-      run: |
-        echo "//registry.gradle.org" > ~/.gradle/gradle.properties
-        echo "gradle.publish.key=${PACKAGE_PAT}" >> ~/.gradle/gradle.properties
-        echo "gradle.publish.secret=" >> ~/.gradle/gradle.properties
-        ./gradlew publish
+        USERNAME: ${{ github.actor }}
+        TOKEN: ${{ secrets.PACKAGE_PAT }}
