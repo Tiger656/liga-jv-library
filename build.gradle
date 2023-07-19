@@ -34,7 +34,7 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-tasks.publishing {
+publishing {
 
 	repositories {
 		maven {
