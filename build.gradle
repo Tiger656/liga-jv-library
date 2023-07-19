@@ -41,8 +41,8 @@ publishing {
 			name = "GitHubPackages"
 			url = "https://maven.pkg.github.com/Tiger656/liga-jv-library"
 			credentials {
-				username = project.findProperty("gpr.user") ?: System.getenv("USERNAME_GITHUB") // Define credentials via GitHub Actions secrets
-				password = project.findProperty("gpr.token") ?: System.getenv("PACKAGE_PAT") // Define credentials via GitHub Actions secrets
+				username = project.findProperty("gpr.user") ?: System.getenv("USERNAME") // Define credentials via GitHub Actions secrets
+				password = project.findProperty("gpr.token") ?: System.getenv("TOKEN") // Define credentials via GitHub Actions secrets
 			}
 		}
 	}
